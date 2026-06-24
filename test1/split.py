@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:06b64e1ae5b4c22785f8f4192f02f4ca9a3e50d1b3364207c215821a84d9424c
-size 280
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+df = pd.read_csv('train.csv')
+train_data, test_data = train_test_split(df, test_size=0.2, random_state=42)
+
+train_data.to_csv('train_80.csv', index=False)
+test_data.to_csv('test_20.csv', index=False)
